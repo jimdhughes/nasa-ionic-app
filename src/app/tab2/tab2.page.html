@@ -1,9 +1,34 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Two
+      NEOS
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content fullscreen>
+  <ion-list lines="none">
+    <ion-list-header>
+      <ion-label>Neos - {{date|date}}</ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let n of neos">
+      <ion-label>
+        <h2>
+          NEO: {{n.name}} {{n.is_potentially_hazardous_asteroid ? " - Potentially Hazardous":""}}
+        </h2>
+        <h3>
+          Magnitude: {{n.absolute_magnitude_h}}
+        </h3>
+        <h3>
+          Width: {{n.estimated_diameter.meters.estimated_diameter_min | number}}m -
+          {{n.estimated_diameter.meters.estimated_diameter_max | number}}m
+        </h3>
+        <p>Miss Distance: {{n.close_approach_data[0].miss_distance?.lunar | number}} lunar units</p>
+        <p>
+          Travelling at: {{n.close_approach_data[0].relative_velocity?.kilometers_per_second |
+          number}} km/s
+        </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,5 +1,6 @@
 {
   "name": "nasa-app",
   "integrations": {},
-  "type": "angular"
+  "type": "angular",
+  "id": "daa7ec12"
 }
